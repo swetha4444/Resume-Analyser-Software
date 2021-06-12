@@ -11,9 +11,6 @@ from spacy.tokens import Span
 import networkx as nx
 import matplotlib.pyplot as plt
 
-
-
-
 nlp = spacy.load('en_core_web_sm')
 
 #* Get Subject and Object
@@ -73,9 +70,6 @@ def create_graph(source, target, relation,kg_df):
     plt.show()
 
 
-
-
-'''
 entity_pairs = get_entities("John completed the task")
 verb = get_relation("John completed the task")
 print(entity_pairs,verb)
@@ -84,4 +78,3 @@ target = entity_pairs[1]
 relation = verb
 kg_df = pd.DataFrame({'source':[source], 'target':[target], 'edge':[relation]})
 create_graph(source,target,relation,kg_df)
-'''
