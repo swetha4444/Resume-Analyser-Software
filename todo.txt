@@ -14,6 +14,6 @@ data.csv
 clean_data.csv (added cols) - created by dataCleaning.py
 	processed_workExp - processed work experience
 
-summary_data.csv (added cols) -created by summary.py
+summary_data.csv (added cols) - created by summary.py
 	summary - summarised processed_workExp
 	keywords - keywords from projects (array)
