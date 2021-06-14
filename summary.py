@@ -3,6 +3,9 @@ import nltk
 import pandas as pd
 import math
 from nltk.tokenize import word_tokenize, sent_tokenize
+from sklearn.feature_extraction.text import CountVectorizer
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
 def tokenize_text(text):
     article = sent_tokenize(text)
@@ -126,10 +129,10 @@ def summary(sent_data):
     return summary
 
 def create_summary():
-    data = pd.read_csv('clean_data.csv')
+    data = pd.read_csv('data.csv')
     data["summary"] = None
     for i in range(len(data)):
-        sentences =  tokenize_text(data["processed_workExp"][i])
+        sentences =  tokenize_text(data["workExp"][i])
         text_data = cnt_in_sent(sentences)
         freq_list = freq_dict(sentences)
         tf_scores = calc_TF(text_data, freq_list)
@@ -137,5 +140,25 @@ def create_summary():
         tfidf_scores = calc_TFIDF(tf_scores, idf_scores)
         sent_data = sent_scores(tfidf_scores, sentences, text_data)
         data.summary[i] =  summary(sent_data)
-        data.to_csv('./summary_data.csv', index=False)
-        print("CVS file is created")
+    data.to_csv('./summary_data.csv', index=False)
+    print("CVS file is created")
+
+
+def keywords():
+    data = pd.read_csv('summary_data.csv')
+    top_n = 5
+    model = SentenceTransformer('distilbert-base-nli-mean-tokens')
+    data["keywords"] = None
+    n_gram_range = (1, 1)
+    stop_words = "english"
+    for i in range(len(data)):
+        doc = data.workExp[i]
+        count = CountVectorizer(ngram_range=n_gram_range, stop_words=stop_words).fit([doc])
+        candidates = count.get_feature_names()
+        doc_embedding = model.encode([doc])
+        candidate_embeddings = model.encode(candidates)
+        distances = cosine_similarity(doc_embedding,candidate_embeddings)
+        keywords = [candidates[index] for index in distances.argsort()[0][-top_n:]]
+        data["keywords"][i] = ','.join(keywords)
+    data.to_csv('./summary_data.csv', index=False)
+    print("CVS file is created")
