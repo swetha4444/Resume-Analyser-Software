@@ -13,7 +13,7 @@ def remove_junk(txt) :
     return txt
 
 def InitializeCSV() :
-    with open("Data.csv",'w') as f:
+    with open("data.csv",'w') as f:
         writer = csv.writer(f)
         writer.writerow(['name', 'phone', 'skills' , 'address' , 'workExp','email'])
 
@@ -29,7 +29,7 @@ def docxToCsv (filename,single = 1) :
     list =  [name,phone_no,skills,address,work_experience,email]
     if single :
         InitializeCSV()
-    with open("Data.csv",'a') as f:
+    with open("data.csv",'a') as f:
         writer = csv.writer(f)
         writer.writerow(list)
 
