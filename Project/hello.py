@@ -29,10 +29,16 @@ def student_dashboard():
         print("HI")
         f = request.files['resume']
         print(f)
-        f.save(os.path.join(UPLOADS_PATH,f.filename))
-        original_filename = f.filename
-        path = "C:\\Users\\ADMIN\Desktop\\Swetha\\Academics\\Resume-Analyser-Software\\Project\\static"+f.filename
-        return "Hi"
+        f.save(f.filename)
+        # Rename the file as resume and replace it .
+        original = f.filename
+        output = 'resume.docx'
+        try:
+            os.rename(original, output)
+        except WindowsError:
+            os.remove(output)
+            os.rename(original, output)
+        return render_template("studentSummary.html")
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])
 def recuriter_dashboard():
@@ -43,6 +49,4 @@ def recuriter_dashboard():
         for f in files:
             print(f)
             f.save(f.filename)
-            original_filename = f.filename
-            path = "C:\\Users\\ADMIN\Desktop\\Swetha\\Academics\\Resume-Analyser-Software\\Project\\static"+f.filename
         return "Hi"
