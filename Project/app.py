@@ -3,8 +3,8 @@ from flask import request
 from flask import render_template
 import os
 from os.path import join, dirname, realpath
-from Codes.execute import *
-from Codes.parser import *
+from execute import *
+from parser import *
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -41,7 +41,7 @@ def student_dashboard():
             os.remove(output)
             os.rename(original, output)
         docxToCsv("../resume.docx")
-#        execute_main()
+#       execute_main()
         return render_template("studentSummary.html")
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])

@@ -3,7 +3,6 @@ import docx2txt
 import csv
 import networkx as nx
 import matplotlib.pyplot as plt
-import os
 
 def remove_junk(txt) :
     if '.' in txt :
@@ -38,6 +37,3 @@ def FolderOfDocxToCSV (path) :
     InitializeCSV()
     for i in files_list :
         docxToCsv(path+"/"+i,0)
-
-#FolderOfDocxToCSV("C:/Users/SRIRAM/OneDrive/Documents/Academics/Machine Learning/Project Resume Parser/Resume-Analyser-Software/Resumes")
-docxToCsv("resume.docx")

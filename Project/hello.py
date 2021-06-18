@@ -2,7 +2,12 @@ from flask import Flask
 from flask import request
 from flask import render_template
 import os
+import pandas as pd
 from os.path import join, dirname, realpath
+from parseResume import *
+import execute
+from execute import execute_main
+
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -38,7 +43,10 @@ def student_dashboard():
         except WindowsError:
             os.remove(output)
             os.rename(original, output)
-        return render_template("studentSummary.html")
+        docxToCsv("resume.docx")
+        execute_main()
+        resume_df = pd.read_csv('data.csv')
+        return render_template("studentSummary.html", tables=[resume_df.to_html(classes='data')])
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])
 def recuriter_dashboard():
