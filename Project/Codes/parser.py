@@ -40,4 +40,4 @@ def FolderOfDocxToCSV (path) :
         docxToCsv(path+"/"+i,0)
 
 #FolderOfDocxToCSV("C:/Users/SRIRAM/OneDrive/Documents/Academics/Machine Learning/Project Resume Parser/Resume-Analyser-Software/Resumes")
-docxToCsv("Mathew Elliot.docx")
+docxToCsv("resume.docx")

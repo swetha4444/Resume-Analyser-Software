@@ -3,8 +3,8 @@ from flask import request
 from flask import render_template
 import os
 from os.path import join, dirname, realpath
-from Codes.graph import csv_to_dict,draw_graph
-from Codes.summary import *
+from Codes.execute import *
+from Codes.parser import *
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -40,7 +40,8 @@ def student_dashboard():
         except WindowsError:
             os.remove(output)
             os.rename(original, output)
-        
+        docxToCsv("../resume.docx")
+#        execute_main()
         return render_template("studentSummary.html")
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])

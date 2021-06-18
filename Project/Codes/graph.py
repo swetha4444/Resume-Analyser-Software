@@ -20,8 +20,7 @@ def draw_graph(e_dict):
     plt.figure(figsize=(12,12))
     pos = nx.spring_layout(G)
     nx.draw(G, with_labels=True, node_color='skyblue', edge_cmap=plt.cm.Blues, pos = pos, node_size = 4500, font_size = 18)
-    plt.savefig('knowledge.png')
-    plt.show()
+    plt.savefig('../static/knowledge.png')
 
 e_dict = csv_to_dict()
 print(e_dict)
