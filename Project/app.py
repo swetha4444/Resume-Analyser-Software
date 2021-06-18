@@ -29,7 +29,7 @@ def student_dashboard():
         print("HI")
         f = request.files['resume']
         print(f)
-        f.save(os.path.join(UPLOADS_PATH,f.filename))
+        f.save(f.filename)
         original_filename = f.filename
         path = "C:\\Users\\ADMIN\Desktop\\Swetha\\Academics\\Resume-Analyser-Software\\Project\\static"+f.filename
         return "Hi"
@@ -43,6 +43,4 @@ def recuriter_dashboard():
         for f in files:
             print(f)
             f.save(f.filename)
-            original_filename = f.filename
-            path = "C:\\Users\\ADMIN\Desktop\\Swetha\\Academics\\Resume-Analyser-Software\\Project\\static"+f.filename
         return "Hi"
