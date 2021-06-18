@@ -3,6 +3,8 @@ from flask import request
 from flask import render_template
 import os
 from os.path import join, dirname, realpath
+from Codes.graph import csv_to_dict,draw_graph
+from Codes.summary import *
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -30,9 +32,16 @@ def student_dashboard():
         f = request.files['resume']
         print(f)
         f.save(f.filename)
-        original_filename = f.filename
-        path = "C:\\Users\\ADMIN\Desktop\\Swetha\\Academics\\Resume-Analyser-Software\\Project\\static"+f.filename
-        return "Hi"
+        # Rename the file as resume and replace it .
+        original = f.filename
+        output = 'resume.docx'
+        try:
+            os.rename(original, output)
+        except WindowsError:
+            os.remove(output)
+            os.rename(original, output)
+        
+        return render_template("studentSummary.html")
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])
 def recuriter_dashboard():
