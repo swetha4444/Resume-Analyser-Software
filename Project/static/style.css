@@ -224,3 +224,9 @@ button{
     text-transform: capitalize;
     text-align: center;
 }
+
+#studentSummary {
+  color : rgb(54, 54, 54);
+  padding-left: 200px;
+  padding-right: 200px;
+}

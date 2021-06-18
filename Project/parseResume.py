@@ -14,7 +14,7 @@ def remove_junk(txt) :
 def InitializeCSV() :
     with open("data.csv",'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['name', 'phone', 'skills' , 'address' , 'workExp','email'])
+        writer.writerow(['name', 'phone', 'skills' , 'address' , 'workExp','email','about'])
 
 def docxToCsv (filename,single = 1) :
     data = docx2txt.process(filename)
@@ -25,7 +25,9 @@ def docxToCsv (filename,single = 1) :
     work_experience = re.search(r'Work Experience\s*:[\S\s]*:',data).group().split(":")[1]
     work_experience = work_experience.rsplit('.', 1)[0]
     skills = remove_junk(re.search(r'Programming Languages\s*:\s*[A-Za-z\s*,\s*0-9]*\s*\.*',data).group().split(":")[1].split(".")[0])
-    list =  [name,phone_no,skills,address,work_experience,email]
+    about =  re.search(r'Summary\s*:[\S\s]*:',data).group().split(":")[1]
+    about = about.rsplit('.', 1)[0]
+    list =  [name,phone_no,skills,address,work_experience,email,about]
     if single :
         InitializeCSV()
     with open("data.csv",'a') as f:

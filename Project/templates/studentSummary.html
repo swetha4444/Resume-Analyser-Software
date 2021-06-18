@@ -31,12 +31,19 @@
                     </ul>
                 </div>
             </div>
-            </nav>
+        </nav>
 
-            <div>
-                {% for table in tables %}
-                    {{ table|safe }}
-                {% endfor %}
-            </div>
+        <br>
+        <br>
+        <br>
+        <div id="studentSummary">
+            <h3> Name : {{ row_data[0][0] }} </h3>
+            <h3> Phone Number : {{ row_data[0][1] }} </h3>
+            <h3> Skills : {{ row_data[0][2] }} </h3>
+            <h3> Address : {{ row_data[0][3] }} </h3>
+            <h3> Email : {{ row_data[0][5] }} </h3>
+            <h3> Work Experience : {{ row_data[0][4] }} </h3>            
+            <h3> About : {{ row_data[0][6] }} </h3>
+        </div>
     </body>
 </html>
