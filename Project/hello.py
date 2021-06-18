@@ -48,6 +48,19 @@ def student_dashboard():
         resume_df = pd.read_csv('data.csv')
         return render_template("studentSummary.html", tables=[resume_df.to_html(classes='data')])
 
+@app.route('/studentSummary')
+def student_summary():
+    resume_df = pd.read_csv('data.csv')
+    return render_template('studentSummary.html', tables=[resume_df.to_html(classes='data')])
+
+@app.route('/studentGraph')
+def student_Graph():
+    return render_template('studentGraph.html')
+
+@app.route('/studentJob')
+def student_Job():
+    return render_template('studentJob.html')
+
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])
 def recuriter_dashboard():
     if request.method=='POST':
