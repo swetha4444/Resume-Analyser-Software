@@ -225,16 +225,9 @@ button{
     text-align: center;
 }
 
-<<<<<<< HEAD
-#studentSummary {
-  color : rgb(54, 54, 54);
-  padding-left: 200px;
-  padding-right: 200px;
-=======
 .graph{
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
   width: 550px;
->>>>>>> f0581245b15d2c05919a8fc2664de2e6f677431b
 }

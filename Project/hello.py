@@ -52,12 +52,12 @@ def student_dashboard():
         docxToCsv("resume.docx")
         execute_main()
         resume_df = pd.read_csv('data.csv')
-        return render_template("studentSummary.html", tables=[resume_df.to_html(classes='data')])
+        return render_template("studentSummary.html", row_data=list(resume_df.values.tolist()), zip=zip)
 
 @app.route('/studentSummary')
 def student_summary():
     resume_df = pd.read_csv('data.csv')
-    return render_template('studentSummary.html', tables=[resume_df.to_html(classes='data')])
+    return render_template('studentSummary.html', row_data=list(resume_df.values.tolist()), zip=zip)
 
 @app.route('/studentGraph')
 def student_Graph():
