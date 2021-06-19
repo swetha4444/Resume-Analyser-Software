@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Theme Made By www.w3schools.com -->
+        <title>Resume Parser and Analyser</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="../static/style.css" rel="stylesheet" />
+    
+    </head>
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://127.0.0.1:5000">Home</a></li>
+                        <li><a href="http://127.0.0.1:5000/recruiterSummary">Summary</a></li>
+                        <li><a href="http://127.0.0.1:5000/recruiterGraph">Knowledge Graph</a></li>
+                        <li><a href="http://127.0.0.1:5000/studentJob">Data Analyis</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <br>
+        <br>
+        <div align="center">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for skills...." autocomplete="off">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+             </button>
+        </div>
+        
+        <br>
+        <br>
+        <div id="studentSummary">
+            {% for table in tables %}
+                {{ table|safe }}
+            {% endfor %}
+        </div>
+
+        <script>
+            function myFunction() {
+              // Declare variables
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+            
+              // Loop through all table rows, and hide those who don't match the search query
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                console.log(td)
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }
+              }
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,6 +1,7 @@
 import re
 import docx2txt
 import csv
+import os
 import networkx as nx
 import matplotlib.pyplot as plt
 
