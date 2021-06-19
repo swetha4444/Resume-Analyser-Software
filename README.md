@@ -28,7 +28,7 @@ A resume is a summarized document which represents a job seeker’s professional
   <img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?&style=for-the-badge&logo=Canva&logoColor=white" />
  </p>
 
-## Installations
+## Installation
 To run the flask app in a  windows environment
  1. Install python 3.8
  2. Run ```pip install virtualenv```
