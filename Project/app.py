@@ -97,11 +97,13 @@ def recuriter_dashboard():
         FolderOfDocxToCSV('./Resumes')
         execute_main()
         resume_df = pd.read_csv('summary_data.csv')
+        resume_df = resume_df.drop(['workExp','about'],axis=1)
         return render_template("recruiterSummary.html", tables=[resume_df.to_html(classes='data steelBlueCols',table_id="myTable", header="true")])
     
 @app.route('/recruiterSummary')
 def recruiter_summary():
     resume_df = pd.read_csv('summary_data.csv')
+    resume_df = resume_df.drop(['workExp','about'],axis=1)
     return render_template('recruiterSummary.html', tables=[resume_df.to_html(classes='table-dark',table_id="myTable", header="true")])
 
 @app.route('/recruiterGraph')
