@@ -8,7 +8,7 @@
   <li> Data Analysis on batch processed resume </li>
   <li> Knowledge graph of resume skills and work experience. </li>
   <li> Resume based job classification </li>
-<ol>
+</ol>
 
 ## Output
   
