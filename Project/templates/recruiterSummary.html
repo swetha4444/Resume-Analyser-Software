@@ -45,10 +45,10 @@
                 <i class="fa fa-search"></i>
              </button>
         </div>
-        
-        <br>
         <br>
         <div id="studentSummary" align="center">
+            <p>The summary is the summarised version of work-experience.</p>
+            <a href="{{url_for('static', filename='summary_data.csv')}}" download>Download as csv</a>
             {% for table in tables %}
                 {{ table|safe }}
             {% endfor %}

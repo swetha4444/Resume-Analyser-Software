@@ -162,4 +162,5 @@ def keywords():
         data["keywords"][i] = ','.join(keywords)
     data = data.drop(['workExp','about'],axis=1)
     data.to_csv('./summary_data.csv', index=False)
+    data.to_csv('./static/summary_data.csv', index=False)
     print("CVS file is created")
