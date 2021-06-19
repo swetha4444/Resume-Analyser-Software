@@ -102,7 +102,7 @@ def recuriter_dashboard():
 @app.route('/recruiterSummary')
 def recruiter_summary():
     resume_df = pd.read_csv('summary_data.csv')
-    return render_template('recruiterSummary.html', tables=[resume_df.to_html(classes='data steelBlueCols',table_id="myTable", header="true")])
+    return render_template('recruiterSummary.html', tables=[resume_df.to_html(classes='table-dark',table_id="myTable", header="true")])
 
 @app.route('/recruiterGraph')
 def recruiter_Graph():

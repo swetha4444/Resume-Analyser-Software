@@ -235,7 +235,8 @@ button{
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  padding: 40px;
+  border-bottom: 1px solid #ddd;
+  margin: 40px;
 }
 
 td,th {
@@ -251,7 +252,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #8db6f7;
+  background-color: #5d92e7;
   color: white;
 }
 
@@ -263,5 +264,5 @@ input[type=text] {
 
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
-  width: 60%;
+  width: 40%;
 }
