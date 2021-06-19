@@ -232,6 +232,11 @@ button{
   width: 550px;
 }
 
+#studentSummary {
+  padding-right: 200px;
+  padding-left: 200px;
+}
+
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;

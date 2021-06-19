@@ -36,15 +36,36 @@
 
         <br>
         <br>
-        <br>
+        <br> 
         <div id="studentSummary">
-            <h3> Name : {{ row_data[0][0] }} </h3>
-            <h3> Phone Number : {{ row_data[0][1] }} </h3>
-            <h3> Skills : {{ row_data[0][2] }} </h3>
-            <h3> Address : {{ row_data[0][3] }} </h3>
-            <h3> Email : {{ row_data[0][5] }} </h3>
-            <h3> Work Experience : {{ row_data[0][4] }} </h3>            
-            <h3> About : {{ row_data[0][6] }} </h3>
+            <div class = "row">
+                <h3 class="col-lg-4"> Name : </h3>
+                <p class="col-lg-8">{{ row_data[0][0] }} </p>
+            </div>
+            <div class = "row">
+                <h3 class="col-lg-4"> Phone Number : </h3>
+                <p class="col-lg-8">{{ row_data[0][1]}} </p>
+            </div>
+            <div class = "row">
+                <h3 class="col-lg-4"> Skills : </h3>
+                <p class="col-lg-8">{{ row_data[0][2]}} </p>
+            </div>
+            <div class = "row">
+                <h3 class="col-lg-4"> Address : </h3>
+                <p class="col-lg-8">{{ row_data[0][3]}} </p>
+            </div>
+            <div class = "row">
+                <h3 class="col-lg-4"> Email : </h3>
+                <p class="col-lg-8">{{ row_data[0][5]}} </p>
+            </div>
+            <div class = "row">
+                <h3 class="col-lg-4"> Work Experience : </h3>  
+                <p class="col-lg-8">{{ row_data[0][4]}} </p>
+            </div>       
+            <div class = "row">
+                <h3 class="col-lg-4"> About : </h3>
+                <p class="col-lg-8">{{ row_data[0][6]}} </p>
+            </div>
         </div>
     </body>
 </html>
