@@ -271,3 +271,8 @@ input[type=text] {
 input[type=text]:focus {
   width: 40%;
 }
+
+#chartContainer {
+  padding-right: 200px;
+  padding-left: 200px;
+}

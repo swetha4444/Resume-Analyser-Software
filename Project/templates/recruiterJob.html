@@ -10,10 +10,43 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link href="../static/style.css" rel="stylesheet" />
+        <link href="../static/style.css" rel="stylesheet"/>
+        <script>
+            window.onload = function () {
+                /*data = [{ y: 300878, label: "Venezuela" },
+                        { y: 266455,  label: "Saudi" },
+                        { y: 169709,  label: "Canada" },
+                        { y: 158400,  label: "Iran" },
+                        { y: 142503,  label: "Iraq" },
+                        { y: 101500, label: "Kuwait" },
+                        { y: 97800,  label: "UAE" },
+                        { y: 80000,  label: "Russia" }] */
+                
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Skills List"
+                },
+                axisY: {
+                    title: "No of people"
+                },
+                data: [{        
+                    type: "column",  
+                    showInLegend: true, 
+                    legendMarkerColor: "grey",
+                    legendText: "Skills",
+                    dataPoints: [ {% for key,value in skills_freq.items() %}
+                                { y: {{value}}, label: "{{key}}"},
+                                {% endfor %}
+                            ]
+                }]
+            });
+            chart.render();
+            }
+        </script>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -32,24 +65,16 @@
                     </ul>
                 </div>
             </div>
-            </nav>
-
-            <div id="about" class="container-fluid">
-                <div class="row">
-                    <div>
-                    <h2>Knowledge Graph</h2><br>
-                    <p>The knowledge graph represents a collection of interlinked descriptions of entities – objects, events or concepts.
-                        Knowledge graphs put data in context via linking and semantic metadata and this way provide a framework for data integration, unification, analytics and sharing.
-                        We extract skills from the resume and model it in a graph format, so that it becomes easier to navigate and extract specific information from.
-                        Check out your knowledge graph below!
-                    </p>
-                    </div>
-                    <br><br>
-                    <div align="center">
-                        <img src="../static/knowledge.png" class="graph">
-                    </div>
+        </nav>
+        <div id="about" class="container-fluid">
+            <div class="row">
+                <div>
+                    <h2>Skills Graph</h2><br>
                 </div>
+                <br><br>
+                <div id="chartContainer" style="height: 370px; width: 70%;"></div>
             </div>
         </div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </body>
 </html>

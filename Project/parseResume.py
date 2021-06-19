@@ -4,6 +4,7 @@ import csv
 import os
 import networkx as nx
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def remove_junk(txt) :
     if '.' in txt :
@@ -41,3 +42,22 @@ def FolderOfDocxToCSV (path) :
     InitializeCSV()
     for i in files_list :
         docxToCsv(path+"/"+i,0)
+
+def extract_freq_skills() :
+    df = pd.read_csv("data.csv")
+    skills_list = df["skills"].tolist()
+    skills = ""
+    for ind,i in enumerate(skills_list) :
+        if ind == len(skills_list)-1 :
+            skills += i
+        else :
+            skills += i+","
+    skills = skills.replace(" ","")
+    print(skills)
+    skills_list = skills.split(",")
+    print(skills_list)
+    skill_set = set(skills_list)
+    graph_data = {}
+    for i in skill_set :
+        graph_data[i] = skills_list.count(i)
+    return graph_data
