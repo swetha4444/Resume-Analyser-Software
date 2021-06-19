@@ -160,5 +160,6 @@ def keywords():
         distances = cosine_similarity(doc_embedding,candidate_embeddings)
         keywords = [candidates[index] for index in distances.argsort()[0][-top_n:]]
         data["keywords"][i] = ','.join(keywords)
+    data = data.drop(['workExp','about'],axis=1)
     data.to_csv('./summary_data.csv', index=False)
     print("CVS file is created")

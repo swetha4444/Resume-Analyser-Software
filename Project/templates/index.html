@@ -36,7 +36,11 @@
         <div class="jumbotron text-center">
         <h1>Resume Parser and Analyser</h1> 
         <p>To make your life easier....</p> 
-        <button class="btn btn-light" onclick="window.location.href='http://127.0.0.1:5000/studentupload'">I am a Student</button> <button class="btn btn-light"onclick="window.location.href='http://127.0.0.1:5000/recuriterupload'">I am a Recruiter</button>
+        <button class="btn btn-light" onclick="window.location.href='http://127.0.0.1:5000/studentupload'">I am a Student</button> 
+        <button class="btn btn-light"onclick="window.location.href='http://127.0.0.1:5000/recuriterupload'">I am a Recruiter</button>
+        <br><br><a href="{{url_for('static', filename='Mathew Elliot.docx')}}" download style="color: white;">
+            Download Sample Resume File Format
+        </a>
         </div>
 
         <!-- Container (About Section) -->
@@ -46,7 +50,7 @@
             <h2>About</h2><br>
             <p>The project consist of two parts- Student and Recruiter. The student and upload his/her resume
                 and get job insights whereas the recruiter can upload a bunch of resumes and get a summarized
-                report on the resumes which makes it easy fpr him to choose the candidates without having to go
+                report on the resumes which makes it easy for him to choose the candidates without having to go
                 through each resume line by line.
             </p>
             </div>
@@ -96,27 +100,15 @@
         <div id="contact" class="container-fluid">
         <h2 class="text-center">CONTACT</h2>
         <div class="row">
-            <div class="col-sm-5">
-            <p>Contact us and we'll get back to you within 24 hours.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
-            <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+            <div class="col-sm-5" style="padding-left: 20%;">
+                <p>Sriram Kannan</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
             </div>
-            <div class="col-sm-7 slideanim">
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                </div>
-                <div class="col-sm-6 form-group">
-                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                </div>
-            </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-            <div class="row">
-                <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" type="submit">Send</button>
-                </div>
-            </div>
+            <div class="col-sm-5" style="padding-left: 20%;">
+                <p>Swetha Saseendran</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
             </div>
         </div>
         </div>
