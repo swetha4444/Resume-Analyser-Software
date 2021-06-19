@@ -87,7 +87,7 @@ def calc_IDF(text_data, freq_list):
 
 # calculating TFIDF value
 def calc_TFIDF(tf_scores, idf_scores):
-    tfidf_scores = []
+    tfidf_scores = [] #hi
     for j in idf_scores:
         for i in tf_scores:
             if j['key'] == i['key'] and j['id'] == i['id']:
