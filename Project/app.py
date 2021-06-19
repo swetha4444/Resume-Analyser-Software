@@ -4,6 +4,12 @@ from flask import render_template
 import os
 import pandas as pd
 from os.path import join, dirname, realpath
+from keras.preprocessing.text import one_hot
+from keras.preprocessing.sequence import pad_sequences
+from keras.models import load_model
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.model_selection import train_test_split
+
 from parseResume import *
 import execute
 from execute import execute_main
@@ -51,7 +57,7 @@ def student_dashboard():
 @app.route('/studentSummary')
 def student_summary():
     resume_df = pd.read_csv('data.csv')
-    return render_template('studentSummary.html', tables=[resume_df.to_html(classes='data')])
+    return render_template('studentSummary.html', row_data=list(resume_df.values.tolist()), zip=zip)
 
 @app.route('/studentGraph')
 def student_Graph():
@@ -59,7 +65,25 @@ def student_Graph():
 
 @app.route('/studentJob')
 def student_Job():
-    return render_template('studentJob.html')
+    resume_df = pd.read_csv('summary_data.csv')
+    user_text = resume_df.workExp[len(resume_df)-1]
+    print(user_text)
+    # Encode the text
+    encoded_docs = [one_hot(user_text, 500)]
+    # pad documents to a max length
+    padded_text = pad_sequences(encoded_docs, maxlen=500, padding='post')
+    model = load_model("model.h5")
+    # Prediction based on model
+    prediction = model.predict(padded_text)
+    # Decode the prediction
+    encoder = LabelBinarizer()
+    data = pd.read_csv('Cleaned_JobDescs.csv', header = 0, names = ['Query', 'Description'])
+    train, test = train_test_split(data, test_size = 0.1, random_state = 17) #random_state = None
+    test_labels = test['Query']
+    encoder.fit(test_labels)
+    result = encoder.inverse_transform(prediction)
+    print(result)
+    return render_template('studentJob.html', job=result[0])
 
 @app.route('/recuriterdashboard', methods=['GET', 'POST'])
 def recuriter_dashboard():
