@@ -9,3 +9,7 @@
   <li> Knowledge graph of resume skills and work experience. </li>
   <li> Resume based job classification </li>
 <ol>
+
+  ## Output
+https://user-images.githubusercontent.com/68152189/122644103-1ae8d000-d131-11eb-9f0b-13990ddfe8b3.mp4
+
