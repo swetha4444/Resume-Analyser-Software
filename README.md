@@ -11,7 +11,7 @@ A resume is a summarized document which represents a job seeker’s professional
     * hi
  * **Data Analysis on batch processed resume.**
     * hi
- * Knowledge graph of resume skills and work experience.
+ * **Knowledge graph of resume skills and work experience.**
     *  Key elements of resumes can be stored and visualized as knowledge graphs. **Knowledge graph of people and the programming skills** they mention on their resume after parsing it.
  * **Resume based job classification**.
     * **CNN based model** takes your work experience into account,and decides what job is well suited for you. The model is fed with about 10,000 rows of job-roles and its  requirments taken from ```Naukri.com```
