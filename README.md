@@ -2,19 +2,19 @@
 A resume is a summarized document which represents a job seeker’s professional background and skills for a prospective employer. The resume parser converts an unstructured form of resume data into a structured format, it extracts it into machine-readable output like CSV. Automated resume screening increases quality of hire by reducing false positives because candidates can't trick the system through keyword stuffing. It also reduces false negatives because candidates with good qualifications no longer slip through the keyword filters.
 
 ## Features
- * Parses the resume (pdf, txt, word file) and retrieves details.
+ * **Parses the resume (pdf, txt, word file) and retrieves details.**
     * hi
- * Summarises the work experience and  work-experiences and retrieves key words.
-    * Scoring a sentence is differs with different algorithms. Here, we are using Tf-IDF score of words in a sentence to give weight to the paragraph. The sentences with higher scores are chosen.
-    * Distilbert is used as it has shown great performance in similarity tasks, which is what we are aiming for with keywords extraction. To find the candidates that are most similar to the document, cosine similarity is used. The most similar candidates to the document are good keywords for representing each review and the keywords are thus got from the candidates. On entering the review number corresponding keywords are returned.
- * Batch process a set of resumes and catogerise applicants based on skills and other factors.
+ * **Summarises the work experience and  work-experiences and retrieves key words.**
+    * Scoring a sentence is differs with different algorithms. Here, we are using **TF-IDF score of words in a sentence to give weight to the paragraph**. The sentences with higher scores are chosen.
+    * **Distilbert** is used as it has shown great performance in similarity tasks, which is what we are aiming for with keywords extraction. To find the candidates that are most similar to the document, **cosine similarity** is used. The most similar candidates to the document are good keywords for representing each review and the keywords are thus got from the candidates. On entering the review number corresponding keywords are returned.
+ * **Batch process a set of resumes** and catogerise applicants based on skills and other factors.
     * hi
- * Data Analysis on batch processed resume.
+ * **Data Analysis** on batch processed resume.
     * hi
  * Knowledge graph of resume skills and work experience.
-    *  Key elements of resumes can be stored and visualized as knowledge graphs. Knowledge graph of people and the programming skills they mention on their resume after parsing it.
- * Resume based job classification.
-    * CNN based model takes your work experience into account,and decides what job is well suited for you. The model is fed with about 10,000 rows of job-roles and its  requirments taken from ```Naukri.com```
+    *  Key elements of resumes can be stored and visualized as knowledge graphs. **Knowledge graph of people and the programming skills** they mention on their resume after parsing it.
+ * Resume based **job classification**.
+    * **CNN based model** takes your work experience into account,and decides what job is well suited for you. The model is fed with about 10,000 rows of job-roles and its  requirments taken from ```Naukri.com```
 
 ## Usage
 ## Technology Stack
