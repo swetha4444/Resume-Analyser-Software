@@ -17,6 +17,13 @@ A resume is a summarized document which represents a job seeker’s professional
     * **CNN based model** takes your work experience into account,and decides what job is well suited for you. The model is fed with about 10,000 rows of job-roles and its  requirments taken from ```Naukri.com```
 
 ## Usage
+* Download the sample resume to follow its format.
+* As a student you can upload your resume and the software can fetch you the knowledge graph and a job recommendation.
+* As a recruiter, to batch process a set of resumes, add all the resumes to a folder names ```Resumes``` and upload that folder.
+   * You can download the summary of all the resumes in form of a CSV file or search for applicants with a given skill set.
+   * Can get a knowledge graph
+   * Overall data analysis on the number of applicants with a particular skill
+
 ## Technology Stack
 <p float="left">
   <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
