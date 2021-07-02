@@ -2,8 +2,8 @@
 A resume is a summarized document which represents a job seeker’s professional background and skills for a prospective employer. The resume parser converts an unstructured form of resume data into a structured format, it extracts it into machine-readable output like CSV. Automated resume screening increases quality of hire by reducing false positives because candidates can't trick the system through keyword stuffing. It also reduces false negatives because candidates with good qualifications no longer slip through the keyword filters.
 
 ## Features
- * **Parses the resume (pdf, txt, word file) and retrieves details.**
-    * hi
+ * **Parses the resume (word file) and retrieves details.**
+    * A python program is written and incorporated to parse the resume based on regular expression and retrieve details.
  * **Summarises the work experience and  work-experiences and retrieves key words.**
     * Scoring a sentence is differs with different algorithms. Here, we are using **TF-IDF score of words in a sentence to give weight to the paragraph**. The sentences with higher scores are chosen.
     * **Distilbert** is used as it has shown great performance in similarity tasks, which is what we are aiming for with keywords extraction. To find the candidates that are most similar to the document, **cosine similarity** is used. The most similar candidates to the document are good keywords for representing each review and the keywords are thus got from the candidates. On entering the review number corresponding keywords are returned.
