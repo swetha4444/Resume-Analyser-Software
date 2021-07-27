@@ -4,7 +4,7 @@ A resume is a summarized document which represents a job seeker’s professional
 ## Features
  * **Parses the resume (word file) and retrieves details.**
     * A python program is written and incorporated to parse the resume based on regular expression and retrieve details.
- * **Summarises the work experience and  work-experiences and retrieves key words.**
+ * **Summarises the work experience and retrieves key words.**
     * Scoring a sentence is differs with different algorithms. Here, we are using **TF-IDF score of words in a sentence to give weight to the paragraph**. The sentences with higher scores are chosen.
     * **Distilbert** is used as it has shown great performance in similarity tasks, which is what we are aiming for with keywords extraction. To find the candidates that are most similar to the document, **cosine similarity** is used. The most similar candidates to the document are good keywords for representing each review and the keywords are thus got from the candidates. On entering the review number corresponding keywords are returned.
  * **Batch process a set of resumes** and catogerise applicants based on skills and other factors.
